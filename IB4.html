@@ -200,6 +200,8 @@
  $('button').on("click",function(e) {
      document.getElementById('btn').style.backgroundColor = "#33cc33";
      document.getElementById("txt").disabled = true;
+     document.getElementById("txt").style.backgroundColor = "#ffffff";
+     
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
@@ -241,7 +243,7 @@
       <!--placeholder="Provide your feedback.."-->
  <div class="rating" id='feedback-reason'>
     <label  class="label">Feedback</label><br>
-    <textarea class="textarea" name="txt" id="txt"></textarea><br>
+    <textarea class="textarea" name="txt" id="txt" placeholder="Provide your feedback..."></textarea><br>
      <button class="button" id="btn">Submit Feedback</button>
     </div>
       </div>
