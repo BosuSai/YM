@@ -49,6 +49,7 @@
             align-items: center;
             background-color: #D1FDE4;
             display:none;
+            
         }
         
         .button{
@@ -59,7 +60,7 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            margin: 4px 2px;
+            margin: 4px 4px;
             font-size: 16px;
             outline:none;
             width:150px;
@@ -72,11 +73,7 @@
             background-image:none;
             background-color:#cc3300;
         }
-        .button:
-        {
-            background-image:none;
-            background-color:#ff00fe;
-        }
+        
         .label{
             border: none;
             color: #365196;
@@ -159,15 +156,15 @@
       <script type="text/javascript">
         $(function () {
           $('input[type="radio"]').click('change',function(e){
-            var ratingValue = $('input[name="smiley"]:checked').val();
+     var ratingValue = $('input[name="smiley"]:checked').val();
 
-            console.log(ratingValue)
-          
-            if(ratingValue==='Poor'){
-              document.getElementById('feedback-reason').style.display = 'inline';
+     if(ratingValue==='Poor'){
+document.getElementById('feedback-reason').style.display = 'inline';
             }
    
         if(ratingValue!=='Poor'){
+           
+
         window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
@@ -181,7 +178,7 @@
             
         }
            
-            $('input[type="radio"]').attr('disabled', 'disabled');
+$('input[type="radio"]').attr('disabled','disabled');
           })
                
         $('textarea').on("keydown",function(e){
@@ -190,7 +187,6 @@
 
         if ( e.which == 46 || e.which == 8 ) 
         {
-
         }
         else if (e.which < 48 || e.which > 57 ) 
         {
@@ -202,22 +198,21 @@
      document.getElementById('btn').style.backgroundColor = "#33cc33";
      document.getElementById("txt").disabled = true;
      document.getElementById("txt").style.backgroundColor = "#ffffff";
-     document.getElementById("btn").style.visibility = "hidden";
-     
+document.getElementById("btn").style.visibility = "hidden";
+var x = document.getElementById("txt").value;
+
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
                  code: "feedback",
                  data: {
-                   value: "check"
+                   value: x
                  }
                }
              })
            }), '*');
  });
         })
-  
-                
       </script>
 
     </head>
@@ -244,8 +239,8 @@
       </div>
       <!--placeholder="Provide your feedback.."-->
  <div class="rating" id='feedback-reason'>
-    <label  class="label">Feedback</label><br>
-    <textarea class="textarea" name="txt" id="txt" placeholder="Provide your feedback..."></textarea><br>
+    <label  class="label" id='lab-feedback'>Feedback</label><br>
+    <textarea class="textarea" name="txt1" id="txt" placeholder="Provide your feedback..."></textarea><br>
      <button class="button" id="btn">Submit Feedback</button>
     </div>
       </div>
