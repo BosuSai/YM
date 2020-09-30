@@ -211,7 +211,7 @@ $('input[type="radio"]').attr('disabled','disabled');
   });
 $('textarea').on("keyup",function(e){
  let text=$('textarea').val();
- var patt = new RegExp("^[a-zA-Z0-9 ]*$");
+ var patt = new RegExp("^[a-zA-Z0-9 .,/-]*$");
   var res = patt.test(text);
      count=0;
     if(!res){
