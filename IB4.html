@@ -199,7 +199,7 @@ $('input[type="radio"]').attr('disabled','disabled');
      document.getElementById("txt").disabled = true;
      document.getElementById("txt").style.backgroundColor = "#ffffff";
 document.getElementById("btn").style.visibility = "hidden";
-var x = document.getElementById("txt").value+" Poor";
+var x = document.getElementById("txt").value.concat(" Poor");
 
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
