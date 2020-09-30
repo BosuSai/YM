@@ -41,8 +41,8 @@
         }
         
         .rating{
-            max-width: 250px;
-            height:210px;
+            max-width: 260px;
+            height:240px;
             width: 100%;
             right: 150px;
             border-radius: 8px;
@@ -59,9 +59,10 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            margin: 4px 2px;
+            margin: 4px 4px;
             font-size: 16px;
             outline:none;
+            width:150px;
             border-radius: 8px;
             cursor:pointer;
 
@@ -71,11 +72,7 @@
             background-image:none;
             background-color:#cc3300;
         }
-        .button:
-        {
-            background-image:none;
-            background-color:#ff00fe;
-        }
+        
         .label{
             border: none;
             color: #365196;
@@ -86,6 +83,19 @@
             display: inline-block;
             margin: 3px 2px;
             border-radius: 8px;
+        }
+        .label1{
+            border: none;
+            font-weight: bold;
+            padding: 2px;
+            color: #cc3300;
+            text-align: center;
+            font-size: 9px;
+            display: inline-block;
+            margin: 3px 2px;
+            border-radius: 8px;
+            display:none;
+
         }
         .textarea {
             width: 220px;
@@ -157,16 +167,18 @@
       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
       <script type="text/javascript">
         $(function () {
+            let errorMessage=""
+            let count=0;
           $('input[type="radio"]').click('change',function(e){
-            var ratingValue = $('input[name="smiley"]:checked').val();
+     var ratingValue = $('input[name="smiley"]:checked').val();
 
-            console.log(ratingValue)
-          
-            if(ratingValue==='Poor'){
-              document.getElementById('feedback-reason').style.display = 'inline';
+     if(ratingValue==='Poor'){
+document.getElementById('feedback-reason').style.display = 'inline';
             }
    
         if(ratingValue!=='Poor'){
+           
+
         window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
@@ -180,16 +192,16 @@
             
         }
            
-            $('input[type="radio"]').attr('disabled', 'disabled');
+$('input[type="radio"]').attr('disabled','disabled');
           })
                
         $('textarea').on("keydown",function(e){
         currentWords = $('textarea').val().split(/[\s]+/).length;
-        if (currentWords > 100) { 
+        
+        if (currentWords > 500) { 
 
         if ( e.which == 46 || e.which == 8 ) 
         {
-
         }
         else if (e.which < 48 || e.which > 57 ) 
         {
@@ -197,23 +209,54 @@
         }
         }           
   });
+$('textarea').on("keyup",function(e){
+ let text=$('textarea').val();
+ var patt = new RegExp("^[a-zA-Z0-9 ]*$");
+  var res = patt.test(text);
+    if(!res){
+        count=0;
+        message="Please enter only Alpha Numeric characters.<br>"
+          document.getElementById('error').style.display = 'inline';
+   document.getElementById('error').innerHTML = message
+        }
+        else{
+            message=""
+           document.getElementById('error').style.display = 'none';
+
+        }
+  });
  $('button').on("click",function(e) {
-     document.getElementById('btn').style.backgroundColor = "#33cc33";
+     document.getElementById("txt").style.backgroundColor = "#ffffff";
+var x = document.getElementById("txt").value;
+let currentWords1 = document.getElementById("txt").value.split(/[\s]+/).length;
+if(currentWords1<50 || x.length<50){
+    count=count+1
+    if(count===1){
+message=message.concat("Please provide min 50 character and 50 words to procced.")
+    }
+document.getElementById('error').style.display = 'inline';
+   document.getElementById('error').innerHTML = message;  
+}
+else{
+    document.getElementById('error').style.display = 'none';
+    document.getElementById("btn").style.visibility = "hidden";
      document.getElementById("txt").disabled = true;
+
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
                  code: "feedback",
                  data: {
-                   value: $('textarea').val()+' '+ratingValue
+                   value: x.concat("$Poor")
                  }
                }
              })
            }), '*');
+ 
+ }
+ 
  });
         })
-  
-                
       </script>
 
     </head>
@@ -240,8 +283,10 @@
       </div>
       <!--placeholder="Provide your feedback.."-->
  <div class="rating" id='feedback-reason'>
-    <label  class="label">Feedback</label><br>
-    <textarea class="textarea" name="txt" id="txt"></textarea><br>
+    <label  class="label" id='lab-feedback'>Feedback</label><br>
+    <textarea class="textarea" name="txt1" id="txt" placeholder="Provide your feedback..." maxlength=500></textarea><br>
+          <label  class="label1" id='error'>Error</label><br>
+
      <button class="button" id="btn">Submit Feedback</button>
     </div>
       </div>
