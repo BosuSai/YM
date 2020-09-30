@@ -93,7 +93,7 @@
             font-size: 9px;
             display: inline-block;
             margin: 3px 2px;
-            border-radius: 8px;
+            border-radius: 12px;
             display:none;
 
         }
@@ -232,7 +232,7 @@ let currentWords1 = document.getElementById("txt").value.split(/[\s]+/).length;
 if(currentWords1<50 || x.length<50){
     count=count+1
     if(count===1){
-message=message.concat("Please provide min 50 character and 50 words to procced.")
+message=message.concat("Please provide 50 words to procced.")
     }
 document.getElementById('error').style.display = 'inline';
    document.getElementById('error').innerHTML = message;  
