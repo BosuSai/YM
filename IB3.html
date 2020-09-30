@@ -167,7 +167,7 @@
       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
       <script type="text/javascript">
         $(function () {
-            let errorMessage=""
+            let message=""
             let count=0;
           $('input[type="radio"]').click('change',function(e){
      var ratingValue = $('input[name="smiley"]:checked').val();
@@ -232,7 +232,7 @@ let currentWords1 = document.getElementById("txt").value.split(/[\s]+/).length;
 if(currentWords1<50 || x.length<100){
     count=count+1
     if(count===1){
-message=message.concat("Please provide min 100 characters/50 words to procced.")
+message=message.concat("Please provide min 100 characters/50 words to proceed.")
     }
 document.getElementById('error').style.display = 'inline';
    document.getElementById('error').innerHTML = message;  
