@@ -203,14 +203,14 @@
      document.getElementById("txt").disabled = true;
      document.getElementById("txt").style.backgroundColor = "#ffffff";
      document.getElementById("btn").style.visibility = "hidden";
-
+     var x = document.getElementById("txt").value;
      
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
                  code: "feedback",
                  data: {
-                   value: $('textarea').val()+' '+ratingValue
+                   value: x+' '+ratingValue
                  }
                }
              })
