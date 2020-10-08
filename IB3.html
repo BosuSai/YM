@@ -229,7 +229,7 @@ $('textarea').on("keyup",function(e){
      document.getElementById("txt").style.backgroundColor = "#ffffff";
 var x = document.getElementById("txt").value;
 let currentWords1 = document.getElementById("txt").value.split(/[\s]+/).length;
-if(currentWords1<50 || x.length<100){
+if(currentWords1<50 && x.length<100){
     count=count+1
     if(count===1){
 message=message.concat("Please provide min 100 characters/50 words to proceed.")
