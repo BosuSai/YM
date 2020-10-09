@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
     <head>
       <title></title>
@@ -31,7 +31,7 @@
         }
 
         .feedback {
-          max-width: 270px;
+          max-width: 280px;
           width: 100%;
           border-radius: 8px;
           display: flex;
@@ -41,8 +41,8 @@
         }
         
         .rating{
-            max-width: 250px;
-            height:210px;
+            max-width: 215px;
+            height:240px;
             width: 100%;
             right: 150px;
             border-radius: 8px;
@@ -59,11 +59,20 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            margin: 4px 2px;
+            margin: 4px 4px;
             font-size: 16px;
             outline:none;
+            width:150px;
             border-radius: 8px;
+            cursor:pointer;
+
         }
+        .button:hover
+        {
+            background-image:none;
+            background-color:#cc3300;
+        }
+        
         .label{
             border: none;
             color: #365196;
@@ -75,9 +84,22 @@
             margin: 3px 2px;
             border-radius: 8px;
         }
+        .label1{
+            border: none;
+            font-weight: bold;
+            color: #cc3300;
+            padding: 2px 4px;
+            text-align: center;
+            font-size: 10px;
+            display: inline-block;
+            margin: 3px 2px;
+            border-radius: 8px;
+            display:none;
+
+        }
         .textarea {
-            width: 220px;
-            height: 140px;
+            width: 200px;
+            height: 120px;
             box-sizing: border-box;
             border-radius: 8px;
             resize: none;
@@ -145,16 +167,18 @@
       <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
       <script type="text/javascript">
         $(function () {
+            let message=""
+            let count=0;
           $('input[type="radio"]').click('change',function(e){
-            var ratingValue = $('input[name="smiley"]:checked').val();
+     var ratingValue = $('input[name="smiley"]:checked').val();
 
-            console.log(ratingValue)
-          
-            if(ratingValue==='Poor'){
-              document.getElementById('feedback-reason').style.display = 'inline';
+     if(ratingValue==='Poor'){
+document.getElementById('feedback-reason').style.display = 'inline';
             }
    
         if(ratingValue!=='Poor'){
+           
+
         window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
@@ -168,16 +192,16 @@
             
         }
            
-            $('input[type="radio"]').attr('disabled', 'disabled');
+$('input[type="radio"]').attr('disabled','disabled');
           })
                
         $('textarea').on("keydown",function(e){
-        currentWords = $('textarea').val().split(/[\s]+/).length;
-        if (currentWords > 100) { 
+        currentWords = $('textarea').val().replace(/  +/g, ' ').split(/[\s]+/).length;
+        
+        if (currentWords > 500) { 
 
         if ( e.which == 46 || e.which == 8 ) 
         {
-
         }
         else if (e.which < 48 || e.which > 57 ) 
         {
@@ -185,21 +209,54 @@
         }
         }           
   });
+$('textarea').on("keyup",function(e){
+ let text=$('textarea').val();
+ var patt = new RegExp("^[a-zA-Z0-9 .,/-]*$");
+  var res = patt.test(text);
+     count=0;
+    if(!res){
+        message="Please enter only Alpha Numeric characters.<br>"
+          document.getElementById('error').style.display = 'inline';
+   document.getElementById('error').innerHTML = message
+        }
+        else{
+            message=""
+           document.getElementById('error').style.display = 'none';
+
+        }
+  });
  $('button').on("click",function(e) {
+     document.getElementById("txt").style.backgroundColor = "#ffffff";
+var x = document.getElementById("txt").value.replace(/  +/g, ' ').trim();
+let currentWords1 = document.getElementById("txt").value.replace(/  +/g, ' ').split(/[\s]+/).length;
+if(currentWords1<50 && x.length<100){
+    count=count+1
+    if(count===1){
+message=message.concat("Please provide min 100 characters/50 words to proceed.")
+    }
+document.getElementById('error').style.display = 'inline';
+   document.getElementById('error').innerHTML = message;  
+}
+else{
+    document.getElementById('error').style.display = 'none';
+    document.getElementById("btn").style.visibility = "hidden";
+     document.getElementById("txt").disabled = true;
+
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
                  code: "feedback",
                  data: {
-                   value: $('textarea').val()+' '+ratingValue
+                   value: x.concat("$Poor")
                  }
                }
              })
            }), '*');
+ 
+ }
+ 
  });
         })
-  
-                
       </script>
 
     </head>
@@ -224,11 +281,13 @@
         </form>
        
       </div>
-      
+      <!--placeholder="Provide your feedback.."-->
  <div class="rating" id='feedback-reason'>
-    <label  class="label">Feedback</label><br>
-    <textarea class="textarea" placeholder="Provide your feedback.."></textarea><br>
-     <button class="button">Submit Feedback</button>
+
+    <textarea class="textarea" name="txt1" id="txt" placeholder="Provide your feedback..." maxlength=500></textarea><br>
+          <label  class="label1" id='error'>Error</label><br>
+
+     <button class="button" id="btn">Submit Feedback</button>
     </div>
       </div>
     </body>
