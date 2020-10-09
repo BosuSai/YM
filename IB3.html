@@ -196,7 +196,7 @@ $('input[type="radio"]').attr('disabled','disabled');
           })
                
         $('textarea').on("keydown",function(e){
-        currentWords = $('textarea').val().split(/[\s]+/).length;
+        currentWords = $('textarea').val().replace(/  +/g, ' ').split(/[\s]+/).length;
         
         if (currentWords > 500) { 
 
@@ -227,8 +227,8 @@ $('textarea').on("keyup",function(e){
   });
  $('button').on("click",function(e) {
      document.getElementById("txt").style.backgroundColor = "#ffffff";
-var x = document.getElementById("txt").value.trim();
-let currentWords1 = document.getElementById("txt").value.split(/[\s]+/).length;
+var x = document.getElementById("txt").value.replace(/  +/g, ' ').trim();
+let currentWords1 = document.getElementById("txt").value.replace(/  +/g, ' ').split(/[\s]+/).length;
 if(currentWords1<50 && x.length<100){
     count=count+1
     if(count===1){
