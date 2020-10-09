@@ -175,7 +175,8 @@
      if(ratingValue==='Poor'){
 document.getElementById('feedback-reason').style.display = 'inline';
             }
-   
+   $('input[type="radio"]').attr('disabled','disabled');
+
         if(ratingValue!=='Poor'){
            
 
@@ -192,7 +193,6 @@ document.getElementById('feedback-reason').style.display = 'inline';
             
         }
            
-$('input[type="radio"]').attr('disabled','disabled');
           })
                
         $('textarea').on("keydown",function(e){
@@ -229,6 +229,7 @@ $('textarea').on("keyup",function(e){
      document.getElementById("txt").style.backgroundColor = "#ffffff";
 var x = document.getElementById("txt").value.replace(/  +/g, ' ').trim();
 let currentWords1 = document.getElementById("txt").value.replace(/  +/g, ' ').split(/[\s]+/).length;
+     if(x.length>0){
 if(currentWords1<50 && x.length<100){
     count=count+1
     if(count===1){
@@ -254,6 +255,7 @@ else{
            }), '*');
  
  }
+     }
  
  });
         })
@@ -284,7 +286,7 @@ else{
       <!--placeholder="Provide your feedback.."-->
  <div class="rating" id='feedback-reason'>
 
-    <textarea class="textarea" name="txt1" id="txt" placeholder="Provide your feedback..." maxlength=500></textarea><br>
+    <textarea class="textarea" name="txt1" id="txt" placeholder="Provide your feedback..." maxlength=1000></textarea><br>
           <label  class="label1" id='error'>Error</label><br>
 
      <button class="button" id="btn">Submit Feedback</button>
