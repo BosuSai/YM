@@ -227,7 +227,7 @@ $('textarea').on("keyup",function(e){
   });
  $('button').on("click",function(e) {
      document.getElementById("txt").style.backgroundColor = "#ffffff";
-var x = document.getElementById("txt").value;
+var x = document.getElementById("txt").value.trim();
 let currentWords1 = document.getElementById("txt").value.split(/[\s]+/).length;
 if(currentWords1<50 && x.length<100){
     count=count+1
