@@ -103,15 +103,21 @@
                  dynamicValues[i] = pairs[i].split("=")[1];
               }
           }
+        console.log(dynamicValues)
         $("#datetimepicker12").datetimepicker({
           inline: true,
           format: "LD",
-          sideBySide: true,
+          sideBySide: true, 
           maxDate: new Date(
             new Date().getFullYear() - parseInt(dynamicValues[0]),
             new Date().getMonth() - 00,
             new Date().getDate() - 00
           ),
+          minDate: new Date(
+            new Date().getFullYear() - 00,
+            new Date().getMonth() - 00,
+            new Date().getDate() + 00
+          )
         });
       });
     </script>
