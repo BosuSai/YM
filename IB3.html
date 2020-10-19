@@ -44,7 +44,6 @@
             .data("DateTimePicker")
             .date()
             .toLocaleString();
-          alert(date);
           window.parent.postMessage(
             JSON.stringify({
               event_code: "ym-client-event",
