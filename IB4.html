@@ -112,6 +112,11 @@
             new Date().getFullYear() - parseInt(dynamicValues[0]),
             new Date().getMonth() - 00,
             new Date().getDate() - 00
+          ), 
+          minDate: new Date(
+            new Date().getFullYear() - 1,
+            new Date().getMonth() - 1,
+            new Date().getDate() + 1
           )
         });
       });
