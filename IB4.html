@@ -44,6 +44,7 @@
             .data("DateTimePicker")
             .date()
             .toLocaleString();
+          alert(date);
           window.parent.postMessage(
             JSON.stringify({
               event_code: "ym-client-event",
@@ -94,30 +95,15 @@
     </div>
     <script type="text/javascript">
       $(function () {
-        let dynamicValues=[]
-        var self = window.location.toString();
-         var querystring = self.split("?");
-          if (querystring.length > 1) {
-              var pairs = querystring[1].split("&");
-              for (i in pairs) {
-                 dynamicValues[i] = pairs[i].split("=")[1];
-              }
-          }
-        console.log(dynamicValues)
         $("#datetimepicker12").datetimepicker({
           inline: true,
           format: "LD",
-          sideBySide: true, 
-          maxDate: new Date(
-            new Date().getFullYear() - parseInt(dynamicValues[0]),
+          sideBySide: true,
+          minDate: new Date(
+            new Date().getFullYear() - 2,
             new Date().getMonth() - 00,
             new Date().getDate() - 00
-          ), 
-          minDate: new Date(
-            new Date().getFullYear() - 1,
-            new Date().getMonth() - 1,
-            new Date().getDate() + 1
-          )
+          ),
         });
       });
     </script>
