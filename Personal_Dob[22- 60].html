@@ -109,14 +109,14 @@
           format: "LD",
           sideBySide: true,
           maxDate: new Date(
-            new Date().getFullYear() - dynamicValues[0],
+            new Date().getFullYear() - parseInt(dynamicValues[0]),
             new Date().getMonth() - 00,
             new Date().getDate() - 00
           ),
           minDate: new Date(
-            new Date().getFullYear() - dynamicValues[1],
+            new Date().getFullYear() - parseInt(dynamicValues[1]),
             new Date().getMonth() - 00,
-            new Date().getDate() + dynamicValues[2]
+            new Date().getDate() + parseInt(dynamicValues[2])
           ),
         });
       });
