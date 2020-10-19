@@ -102,17 +102,18 @@
                  dynamicValues[i] = pairs[i].split("=")[1];
               }
           }
+      app.log(dynamicValues)
       $(function () {
         $("#datetimepicker12").datetimepicker({
           inline: true,
           format: "LD",
           sideBySide: true,
           maxDate: new Date(
-            new Date().getFullYear() - dynamicValues[0],
+            new Date().getFullYear() - ParseInt(dynamicValues[0]),
             new Date().getMonth() - 00,
             new Date().getDate() - 00
           ),
-            minDate: new Date("1950-01-01")
+            minDate: new Date(dynamicValues[1])
         });
       });
     </script>
