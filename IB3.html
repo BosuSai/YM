@@ -108,16 +108,16 @@
           inline: true,
           format: "LD",
           sideBySide: true,
-          maxDate: new Date(
-            new Date().getFullYear() - parseInt(dynamicValues[0]),
-            new Date().getMonth() - 00,
-            new Date().getDate() - 00
-          ),
-          minDate: new Date(
+            minDate: new Date(
             new Date().getFullYear() - parseInt(dynamicValues[1]),
             new Date().getMonth() - 00,
             new Date().getDate() + parseInt(dynamicValues[2])
           ),
+          maxDate: new Date(
+            new Date().getFullYear() - parseInt(dynamicValues[0]),
+            new Date().getMonth() - 00,
+            new Date().getDate() - 00
+          )
         });
       });
     </script>
