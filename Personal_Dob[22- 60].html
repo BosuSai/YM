@@ -95,19 +95,28 @@
     </div>
     <script type="text/javascript">
       $(function () {
+        let dynamicValues=[]
+        var self = window.location.toString();
+         var querystring = self.split("?");
+          if (querystring.length > 1) {
+              var pairs = querystring[1].split("&");
+              for (i in pairs) {
+                 dynamicValues[i] = pairs[i].split("=")[1];
+              }
+          }
         $("#datetimepicker12").datetimepicker({
           inline: true,
           format: "LD",
           sideBySide: true,
           maxDate: new Date(
-            new Date().getFullYear() - 23,
+            new Date().getFullYear() - dynamicValues[0],
             new Date().getMonth() - 00,
             new Date().getDate() - 00
           ),
           minDate: new Date(
-            new Date().getFullYear() - 55,
+            new Date().getFullYear() - dynamicValues[1],
             new Date().getMonth() - 00,
-            new Date().getDate() + 1
+            new Date().getDate() + dynamicValues[2]
           ),
         });
       });
