@@ -104,7 +104,10 @@
             new Date().getMonth() - 00,
             new Date().getDate() - 00
           ),
-            minDate: new Date('1950-01-01')
+            maxDate: new Date(
+            new Date("1950-01-01").getFullYear() ,
+            new Date("1950-01-01").getMonth() 
+            new Date("1950-01-01").getDate()
           )
         });
       });
