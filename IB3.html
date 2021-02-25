@@ -1,53 +1,62 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.wrap {
-    width: 352px;
-}
-
-.wrap table {
-    width: 300px;
-    table-layout: fixed;
-}
-
-table tr td {
-    padding: 5px;
-    border: 1px solid #eee;
-    width: 100px;
-    word-wrap: break-word;
-}
-
-table.head tr td {
-    background: #eee;
-}
-
-.inner_table {
-    height: 100px;
-    overflow-y: auto;
-}
+  <head>
+    <title>Title of the document</title>
+    <style>
+      .tableFixHead {
+        overflow-y: auto;
+        height: 106px;
+      }
+      .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+      }
+      th {
+        background: #eee;
+      }
     </style>
-</head>
-<body>
-
-<div class="wrap">
-    <table class="head">
-        <tr>
-            <td>Head 1</td>
-            <td>Head 1</td>
-            <td>Head 1</td>
-        </tr>
-    </table>
-    <div class="inner_table">
-        <table>
-        <tr>
-            <td>Body 1</td>
-            <td>Body 1</td>
-            <td>Body 1</td>
-        </tr>
-        <!-- Some more tr's -->
-    </table>
+  </head>
+  <body>
+    <div class="tableFixHead">
+      <table>
+        <thead>
+          <tr>
+            <th>Col 1</th>
+            <th>Col 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.1</td>
+            <td>2.1</td>
+          </tr>
+          <tr>
+            <td>1.2</td>
+            <td>2.2</td>
+          </tr>
+          <tr>
+            <td>1.3</td>
+            <td>2.3</td>
+          </tr>
+          <tr>
+            <td>1.4</td>
+            <td>2.4</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-</div>
+  </body>
+</html>
