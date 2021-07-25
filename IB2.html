@@ -1,89 +1,91 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-} */
- 
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  width: 100%;
-height:100%
+ <!DOCTYPE html>
+    <html>
+    <head>
+      <style type="text/css">
+        body {
+          -webkit-box-align: center;
+          align-items: center;
+          display: -webkit-box;
+          display: flex;
+          font-family: Helvetica, sans-serif;
+          height: 100vh;
+          -webkit-box-pack: center;
+          justify-content: center;
+          margin: 0;
+        }
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          padding: 0 20px;
+        }
+        .main{
+            display: flex;
+          flex-wrap: wrap;
+            align-items: center;
+          justify-content: center;
+          padding: 0 20px;  
+        }
+
+        .button{
+            background-color: #3421B1;
+            color: white;
+            padding: 2px;
+  border: 2px solid #3421B1;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            font-size: 16px;
+            outline:none;
+                        width: 230px;
+            border-radius: 8px;
+        }
+        .textarea {
+            width: 230px;
+            height: 140px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+    border-color: #3421B1;
+            border-radius: 8px;
+            margin: 2px 4px;
+            resize: none;
+            outline: none;
+        }
+        .button:hover {        
+        cursor: pointer;
 }
-</style>
-</head>
-<body>
+        body div {
+          font-size: 15px;
+          margin-top: 15px;
+          text-align: center;
+        }
+      </style>
 
-<div style="height:100px;overflow:auto;">
-
-  <table>
-    <tr>
-      <th>Item Namesoo</th>
-      <th>Allowed in Cabin</th>
-      <th>Allowed in Check in</th>
-    </tr>
-    <tr>
-      <td style="text-align:center">Silver ware crockery</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-    <tr>
-      <td>Wrist watches</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center"> Yes, however if expensive pax should carry it in hand baggage.</td>
-
-    </tr>
-    <tr>
-      <td style="text-align:center">Hair dryer</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-      <tr>
-      <td style="text-align:center">Hair dryer</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-      <tr>
-      <td style="text-align:center">Hair dryer</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-      <tr>
-      <td style="text-align:center">Hair dryer</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-      <tr>
-      <td style="text-align:center">Hair dryer</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-      <tr>
-      <td style="text-align:center">Hair dryer</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-      <tr>
-      <td style="text-align:center">Hair dryer</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
-
-    </tr>
-  </table>
+      <script type="text/javascript">
+ 
+ $('button').on("click",function(e) {
+ window.parent.postMessage(JSON.stringify({
+             event_code: 'ym-client-event', data: JSON.stringify({
+               event: {
+                 code: "feedback",
+                 data: {
+                   value: $('textarea').val()
+                 }
+               }
+             })
+           }), '*');
+ });
+      </script>
+    </head>
+    <body>
+            <div class="main">
+    <div class="container">
+        <textarea id="feedback" class="textarea" placeholder="Answer Here"></textarea>
+		<button type="submit" class="button">Submit</button>
+</div>
 </div>
 
 </body>
-</html>
+    </html>
