@@ -1,489 +1,90 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Title of the document</title>
-    <style>
-      .tableFixHead {
-        overflow-y: auto;
-        height: 260px
-      }
-      .tableFixHead thead th {
-        position: sticky;
-        top: 0;
-      }
-      table {
-/*         border-collapse: collapse; */
-        width: 100%;
-      }
-      th,
-      td {
-        padding: 8px 16px;
-        border: 1px solid #ccc;
-      }
-      th {
-        background: #eee;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="tableFixHead">
-      <table>
-        <thead>
-          <tr>
-            <th>Item Names</th>
-            <th>Allowed in Cabin</th>
-            <th>Allowed in Check in</th>
-          </tr>
-        </thead>
-        <tbody>
-<!--     <tr>
-      <td style="text-align:center">Silver ware crockery</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">Yes</td>
+ <!DOCTYPE html>
+    <html>
+    <head>
+      <style type="text/css">
+        body {
+          -webkit-box-align: center;
+          align-items: center;
+          display: -webkit-box;
+          display: flex;
+          font-family: Helvetica, sans-serif;
+          height: 100vh;
+          -webkit-box-pack: center;
+          justify-content: center;
+          margin: 0;
+        }
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          padding: 0 20px;
+        }
+        .main{
+            display: flex;
+          flex-wrap: wrap;
+            align-items: center;
+          justify-content: center;
+          padding: 0 20px;  
+        }
 
-    </tr>
-   <tr> -->
-<td style="text-align:center">Silver ware crockery</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Wrist watches</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes, however if expensive pax should carry it in hand baggage.</td>
-</tr>
-<tr>
-<td style="text-align:center">Hair dryer</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Honey</td>
-<td style="text-align:center">Yes. Up to 100 ml</td>
-<td style="text-align:center">Yes (sealed & with proper packing )</td>
-</tr>
-<tr>
-<td style="text-align:center">Non-prescribed medicines</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Water bottle</td>
-<td style="text-align:center">Yes. Up-to 100 ml</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Mobile charger</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Laptop charger</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Aerated drinks</td>
-<td style="text-align:center">Yes. Up-to 100 ml</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Ashes</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Baby Stroller/pram</td>
-<td style="text-align:center">Allowed , must be foldable</td>
-<td style="text-align:center">Allowed , must be foldable</td>
-</tr>
-<tr>
-<td style="text-align:center">Bicycle</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Allowed , it should be dismantled</td>
-</tr>
-<tr>
-<td style="text-align:center">Biryani</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Blade</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Broadband routers/Telephone</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Cake</td>
-<td style="text-align:center">Dry cake allowed</td>
-<td style="text-align:center">Dry cake allowed</td>
-</tr>
-<tr>
-<td style="text-align:center">Car seat</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Chopper Knife</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Cigarettes</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Coconut</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Allowed (small pieces; Dry Coconut/Copra not allowed)</td>
-</tr>
-<tr>
-<td style="text-align:center">CPU</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Desktop</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Driller machines</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Drone camera</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Dry foods</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Dry fruits</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">DSLR</td>
-<td style="text-align:center">Allowed , battery must be removed</td>
-<td style="text-align:center">Yes (Battery must be separated & carried in Cabin Bag)</td>
-</tr>
-<tr>
-<td style="text-align:center">E-cigarettes</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Fish/Meat</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Fruits/vegetables</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Gas stove/Grinder</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Ghee</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Glass items</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Glass items</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Gold/Silver Jewelry</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Golf Kit</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Allowed with charges</td>
-</tr>
-<tr>
-<td style="text-align:center">Groceries</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Gun</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes (with valid License/Movement Order & proper Documents; if personal weapon, Rs. 5000/- handling charges applicable)</td>
-</tr>
-<tr>
-<td style="text-align:center">Gun</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Only Air-Gun allowed</td>
-</tr>
-<tr>
-<td style="text-align:center">Gun with bullets for sports and army</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes (Weapon Handling charges of Rs. 5000/- applicable if not attending any competition; if attending or returning from any Shooting Competition, charges waived off)</td>
-</tr>
-<tr>
-<td style="text-align:center">Hammer</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes medium size</td>
-</tr>
-<tr>
-<td style="text-align:center">Heater battery</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Heater electric</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes (without battery)</td>
-</tr>
-<tr>
-<td style="text-align:center">Holy water/ganga jal)</td>
-<td style="text-align:center">No (Allowed upto 100ml)</td>
-<td style="text-align:center">Allowed (upto 5ltrs)</td>
-</tr>
-<tr>
-<td style="text-align:center">Home appliances</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes (battery to be separated & carried in hand if battery operated)</td>
-</tr>
-<tr>
-<td style="text-align:center">Human Remains</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes (HUM shall be booked through Cargo with proper/valid documents)</td>
-</tr>
-<tr>
-<td style="text-align:center">Jewellery/Cash</td>
-<td style="text-align:center">Allowed with proper documents</td>
-<td style="text-align:center">Yes (Indigo do not transport Valuables in Check-In Luggage)</td>
-</tr>
-<tr>
-<td style="text-align:center">Kirpan</td>
-<td style="text-align:center">Yes (for domestic flight only; upto BCAS dimension of total size of 9inches with blade size maximum of 6inch)</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Laptop</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes (Battery to be removed & carried in Cabin Baggage)</td>
-</tr>
-<tr>
-<td style="text-align:center">Laptop more than 2</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Liquor</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Allowed up to 5ltrs with Alcoholic level between 24%-70%</td>
-</tr>
-<tr>
-<td style="text-align:center">Liquor upto 5 litre only</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Mechanical Tools</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Medical Equipment</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Allowed (equipment should be without mercury content)</td>
-</tr>
-<tr>
-<td style="text-align:center">Medicines</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Medicines</td>
-<td style="text-align:center">Allowed with proper prescription</td>
-<td style="text-align:center">Allowed with proper prescription</td>
-</tr>
-<tr>
-<td style="text-align:center">Metal items</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Monitor</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Allowed with charges</td>
-</tr>
-<tr>
-<td style="text-align:center">Multiple tabs, mobiles</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Musical Instruments</td>
-<td style="text-align:center">Soft Case allowed</td>
-<td style="text-align:center">Hard case allowed with charges</td>
-</tr>
-<tr>
-<td style="text-align:center">Oily foods</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Oily items</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Painting brush</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Perfume/Deo</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Limited quantity allowed (100 ML)</td>
-</tr>
-<tr>
-<td style="text-align:center">Pets</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Photo frames</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Pickles</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Plants</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Non-Poisonous Allowed</td>
-</tr>
-<tr>
-<td style="text-align:center">Power bank</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Power bank</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Raw Foods (Rice/Pulses)</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Raw Green vegetables</td>
-<td style="text-align:center">Yes (with weight limitation as per cabin baggage)</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Rod items</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Scissors</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Sharp items</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Shaving brush</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Sherwani/Suits</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Skeleton</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Not Allowed (Need to contact cargo)</td>
-</tr>
-<tr>
-<td style="text-align:center">Statues/idols</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Steel heavy items</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Sweets</td>
-<td style="text-align:center">Dry Sweet Allowed</td>
-<td style="text-align:center">Dry sweets allowed</td>
-</tr>
-<tr>
-<td style="text-align:center">Swords</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Trimmer with battery</td>
-<td style="text-align:center">Yes</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Trimmer without battery</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">TV</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Umbrella</td>
-<td style="text-align:center">Yes (only with blund tip/edge; sharp edged umbrellas to be carried in Check-In Baggage)</td>
-<td style="text-align:center">Yes</td>
-</tr>
-<tr>
-<td style="text-align:center">UPS</td>
-<td style="text-align:center">No</td>
-<td style="text-align:center">No</td>
-</tr>
-<tr>
-<td style="text-align:center">Wheelchair (Self)</td>
-<td style="text-align:center">No (due to size limitation)</td>
-<td style="text-align:center">Yes</td>
-</tr>
-        </tbody>
-      </table>
-    </div>
-  </body>
-</html>
+        .button{
+            background-color: #3421B1;
+            color: white;
+            padding: 2px;
+  border: 2px solid #3421B1;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            font-size: 16px;
+            outline:none;
+                        width: 230px;
+            border-radius: 8px;
+        }
+        .textarea {
+            width: 230px;
+            height: 140px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+    border-color: #3421B1;
+            border-radius: 8px;
+            margin: 2px 4px;
+            resize: none;
+            outline: none;
+        }
+        .button:hover {        
+        cursor: pointer;
+}
+        body div {
+          font-size: 15px;
+          margin-top: 15px;
+          text-align: center;
+        }
+      </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+      <script type="text/javascript">
+ $('button').on("click",function(e) {
+ window.parent.postMessage(JSON.stringify({
+             event_code: 'ym-client-event', data: JSON.stringify({
+               event: {
+                 code: "feedback",
+                 data: {
+                   value: $('textarea').val()
+                 }
+               }
+             })
+           }), '*');
+ });
+      </script>
+    </head>
+    <body>
+            <div class="main">
+    <div class="container">
+        <textarea id="feedback" class="textarea" placeholder="Answer Here"></textarea>
+		<button class="button">Submit</button>
+</div>
+</div>
+
+</body>
+    </html>
