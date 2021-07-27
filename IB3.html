@@ -1,6 +1,7 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
     <head>
+      <title></title>
       <style type="text/css">
         body {
           -webkit-box-align: center;
@@ -13,19 +14,15 @@
           justify-content: center;
           margin: 0;
         }
-        .container {
+
+        .feedback {
+          max-width: 280px;
+          width: 100%;
+          border-radius: 8px;
           display: flex;
-          flex-wrap: wrap;
+          flex-direction: row;
           align-items: center;
-          justify-content: center;
-          padding: 0 20px;
-        }
-        .main{
-            display: flex;
-          flex-wrap: wrap;
-            align-items: center;
-          justify-content: center;
-          padding: 0 20px;  
+          background-color: #D1FDE4;
         }
 
         .button{
@@ -61,30 +58,51 @@
           margin-top: 15px;
           text-align: center;
         }
+
+        .mtt {
+          position: fixed;
+          bottom: 10px;
+          right: 20px;
+          color: #999;
+          text-decoration: none;
+        }
+        .mtt span {
+          color: #e74c3c;
+        }
+        .mtt:hover {
+          color: #666;
+        }
+        .mtt:hover span {
+          color: #c0392b;
+        }
+
       </style>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
       <script type="text/javascript">
+        $(function () {
+               
  $('button').on("click",function(e) {
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
                  code: "feedback",
                  data: {
-                   value: $('textarea').val()
+                   value: $('textarea').val()+'Rating'+ratingValue
                  }
                }
              })
            }), '*');
  });
+            
+            })
       </script>
-    </head>
-    <body>
-            <div class="main">
-    <div class="container">
-        <textarea id="feedback" class="textarea" placeholder="Answer Here"></textarea>
-		<button class="button">Submit</button>
-</div>
-</div>
 
-</body>
+    </head>
+    <body>   
+          <div>
+    <textarea class="textarea"id="rating" placeholder="Answer Here" style="height:150px;width:250px;"></textarea><br>
+     <button class="button" type="button">Submit Feedback</button>
+      </div>
+    </body>
     </html>
