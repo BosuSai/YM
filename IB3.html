@@ -83,8 +83,6 @@
         $(function () {
                
  $('button').on("click",function(e) {
- document.getElementById('test').innerHTML = $('textarea').val() 
-
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
@@ -104,9 +102,7 @@
     <body>   
           <div>
     <textarea class="textarea"id="rating" placeholder="Answer Here" style="height:150px;width:250px;"></textarea><br>
-        <label id="test">FeedBack:</label><br>
-
-     <button class="button" type="button">Submit Feedback</button>
+     <button class="button" type="button">Submit</button>
       </div>
     </body>
     </html>
