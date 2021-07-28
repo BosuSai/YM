@@ -81,6 +81,8 @@
         $(function () {
                
  $('button').on("click",function(e) {
+        document.getElementById('btn').disabled = true
+   document.getElementById('txtarea').disabled = true
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
@@ -99,8 +101,8 @@
     </head>
     <body>   
           <div>
-    <textarea class="textarea" placeholder="Answer Here" style="height:220px;width:250px;"></textarea><br>
-     <button class="button" type="button">Submit</button>
+    <textarea class="textarea" id="txtarea" placeholder="Answer Here" style="height:220px;width:250px;"></textarea><br>
+     <button class="button" id="btn" type="button">Submit</button>
       </div>
     </body>
     </html>
