@@ -218,9 +218,8 @@
                 // $('input[type="radio"]').attr('disabled', 'disabled');
                 // $('input[type="radio"]').fadeTo("slow", 0.15, function () {
                 //   $(this).find(':input').attr('disabled', 'disabled');
-                //   $(this).find('label').css('cursor', 'default');
+                $(this).find('label').css('cursor', 'default');
                 // });
-                 $('input[type="radio"]').attr('disabled', 'disabled');
 
                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event', data: JSON.stringify({
