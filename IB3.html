@@ -83,6 +83,8 @@
  $('button').on("click",function(e) {
         document.getElementById('btn').disabled = true
    document.getElementById('txtarea').disabled = true
+         document.getElementById('btn').style.cursor = "default";
+
  window.parent.postMessage(JSON.stringify({
              event_code: 'ym-client-event', data: JSON.stringify({
                event: {
